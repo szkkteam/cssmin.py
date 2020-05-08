@@ -35,8 +35,8 @@ def main():
     if '-v' in sys.argv:
 
         test_file = FAILED[0]
-        print 'FIRST FAILURE: %2d %s' % (tests.index(test_file), test_file)
-        print '========%s=\n' % ('=' * len(test_file))
+        print ('FIRST FAILURE: %2d %s' % (tests.index(test_file), test_file))
+        print ('========%s=\n' % ('=' * len(test_file)))
         computed = cssmin.cssmin(open(test_file).read())
         control = open('%s.min' % test_file).read()
 
@@ -45,21 +45,21 @@ def main():
             cssmin.css_expand(control).split('\n'),
             cssmin.css_expand(computed).split('\n'),
         )
-        print '\n'.join(diff)
+        print ('\n'.join(diff))
 
     else:
 
-        print 'Passed: %d' % len(PASSED)
-        print '============='
+        print ('Passed: %d' % len(PASSED))
+        print ('=============')
         for test_file in PASSED:
-            print '  %2d: %s' % (tests.index(test_file), test_file)
+            print ('  %2d: %s' % (tests.index(test_file), test_file))
 
-        print '\n\n'
+        print ('\n\n')
 
-        print 'Failed: %d' % len(FAILED)
-        print '============='
+        print ('Failed: %d' % len(FAILED))
+        print ('=============')
         for test_file in FAILED:
-            print '  %2d: %s' % (tests.index(test_file), test_file)
+            print ('  %2d: %s' % (tests.index(test_file), test_file))
 
 
 if __name__ == '__main__':
